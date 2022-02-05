@@ -1,42 +1,14 @@
-package com.prakash.blogProj.comment.entity;
+package com.prakash.blogProj.dto;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-public class Comment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+public class CommentDTO {
     private Long id;
-
-    @Column(name = "blog_id")
     private Long blogId;
-
-    @Column(name = "comment")
     private String comment;
-
-    @Column(name = "author")
     private String author;
-
-    @Column(name = "create_date")
     private Date createDate;
-
-    @Column(name = "modified_date")
     private Date modifiedDate;
-
-
-    public Comment(){
-
-    }
-
-    public Comment(Long blog_id, String comment, String author, Date createDate, Date modifiedDate) {
-        this.blogId = blog_id;
-        this.comment = comment;
-        this.author = author;
-        this.createDate = createDate;
-        this.modifiedDate = modifiedDate;
-    }
 
     public Long getId() {
         return id;
