@@ -1,12 +1,16 @@
 package com.prakash.blogProj.dto;
 
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class UserDTO {
+    @ApiModelProperty(hidden = true)
     private Long id;
     private String userName;
     private String password;
     private String firstName;
     private String lastName;
+    private Long roleId;
 
     public Long getId() {
         return id;
@@ -46,5 +50,13 @@ public class UserDTO {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Long getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 }

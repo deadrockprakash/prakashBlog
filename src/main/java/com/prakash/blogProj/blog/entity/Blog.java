@@ -1,10 +1,12 @@
 package com.prakash.blogProj.blog.entity;
 
+import com.prakash.blogProj.comment.entity.Comment;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Blog {
@@ -24,6 +26,18 @@ public class Blog {
 
     @Column(name = "created_date")
     private Date createdDate;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "blog_id", insertable = false, updatable = false)
+    private List<Comment> comments;
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 
     public Blog(){
 

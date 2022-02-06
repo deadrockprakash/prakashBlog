@@ -1,5 +1,7 @@
 package com.prakash.blogProj.comment.entity;
 
+import com.prakash.blogProj.blog.entity.Blog;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -24,7 +26,6 @@ public class Comment {
 
     @Column(name = "modified_date")
     private Date modifiedDate;
-
 
     public Comment(){
 
