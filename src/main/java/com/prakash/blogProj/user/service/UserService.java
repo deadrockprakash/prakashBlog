@@ -21,7 +21,7 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class UserService  implements  UserDetailsService{
+public class UserService  implements  UserDetailsService {
     @Autowired
     UserRepository userRepository;
 
@@ -34,6 +34,7 @@ public class UserService  implements  UserDetailsService{
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        log.info("username {} :",username);
         User user = userRepository.findByUserName(username);
         if (user==null){
             throw new UsernameNotFoundException("User not found in the data");
@@ -51,15 +52,6 @@ public class UserService  implements  UserDetailsService{
         roleRepository.save(role);
         return role;
     }
-
-    public void addRoleToUser(String userName,String name){
-
-        User user = userRepository.findByUserName(userName);
-        Role role = roleRepository.findByName(name);
-        user.getRoles().add(role);
-
-    }
-
 
     public User getUser(String userName){
         return userRepository.findByUserName(userName);

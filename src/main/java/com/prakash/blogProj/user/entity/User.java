@@ -22,6 +22,7 @@ public class User {
 
     @Column(name = "lastname")
     private String lastName;
+
     @Column(name = "role_id")
     private Long roleId;
 

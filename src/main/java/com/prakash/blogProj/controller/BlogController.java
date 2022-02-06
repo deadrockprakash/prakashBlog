@@ -40,11 +40,6 @@ public class BlogController {
         return new ResponseEntity(blogService.updateBlog(id,blogDTO),HttpStatus.OK);
     }
 
-    @GetMapping("/version")
-    public HttpEntity getVersion(){
-        return new ResponseEntity("version 1.0",HttpStatus.OK);
-    }
-
     @GetMapping("/comments/getComments/{author}")
     public HttpEntity getAuthorComments(@PathVariable (value = "author") String author){
         return new  ResponseEntity(commentService.getCommentByAuthor(author), HttpStatus.OK);

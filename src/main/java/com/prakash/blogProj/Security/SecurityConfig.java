@@ -54,8 +54,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
        // http.authorizeRequests().antMatchers("/**").permitAll();
         http.authorizeRequests().antMatchers("/login/**","/api/user/**","/api/blog/**","/api/comments/**").permitAll();
 
-//        http.authorizeRequests().antMatchers("/api/token/refresh/**").permitAll();
-//
 //        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/user/**").hasAnyAuthority("user");
 //        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/user/**").hasAnyAuthority("user");
         http.authorizeRequests().anyRequest().authenticated();
@@ -67,7 +65,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
-
     }
 
 }
